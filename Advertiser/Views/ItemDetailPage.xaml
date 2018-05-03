@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Advertiser.CustomControl;assembly=Advertiser.Droid"
+             x:Class="Advertiser.ItemDetailPage" 
+             Title="{Binding Title}">
+    
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.15*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.15*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#0075BE">
+            <RelativeLayout x:Name="gridUppper">
+                <Image Source="{Binding Item.ImageUri}" HeightRequest="150" WidthRequest="250"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant = -125}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=0}" />
+
+                <local:CustomDiscountButton x:Name="btnClaim" Text="GET DISCOUNT" Clicked="OnClaim" FontAttributes="Bold" FontSize="Small"  WidthRequest="150"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0.5, Constant = -75}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=gridUppper,Property=Height, Factor=1, Constant=-25}" />
+            </RelativeLayout>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnSpacing="0" VerticalOptions="End" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.9*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Image Source="advertiser.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Text="Advertiser Name" VerticalTextAlignment="Center" TextColor="#0075BE"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Label Text="{Binding Item.Author}" VerticalTextAlignment="Center" TextColor="#424242" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" ColumnSpacing="0" BackgroundColor="#EEEEEE" VerticalOptions="Center" Padding="0,5,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.9*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Image Source="mail.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Text="EMAIL ID" VerticalTextAlignment="Center" TextColor="#0075BE" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Label Text="{Binding Item.Email}" VerticalTextAlignment="Center" TextColor="#424242" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3" ColumnSpacing="0" VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.9*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Image Source="call.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Text="Phone Number" VerticalTextAlignment="Center" TextColor="#0075BE" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Label Text="{Binding Item.Phone}" VerticalTextAlignment="Center" TextColor="#424242" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="4"  ColumnSpacing="0" BackgroundColor="#EEEEEE" Padding="0,5,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.9*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Image Source="description.png" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0"/>
+            </Grid>
+
+            <Grid Grid.Column="1" RowSpacing="0" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*" />
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="0.05*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Text="Description" VerticalTextAlignment="Center" TextColor="#0075BE" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <ScrollView>
+                        <!--<local:CustomLabel Text="{Binding Item.Description}" TextColor="Gray"/>-->
+                        <Label Text="{Binding Item.Description}" VerticalTextAlignment="Start" VerticalOptions="StartAndExpand" TextColor="#424242" />
+                    </ScrollView>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="5" />
+    </Grid>
+</ContentPage>

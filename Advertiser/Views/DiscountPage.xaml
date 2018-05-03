@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Advertiser.CustomControl;assembly=Advertiser.Droid"
+             x:Class="Advertiser.DiscountPage" 
+             Title="Get Discount">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Text" FontSize="Medium" />
+            <Entry Text="{Binding Item.Text}" FontSize="Small" />
+            <Label Text="Description" FontSize="Medium" />
+            <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+        </StackLayout>
+    </ContentPage.Content>-->
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.25*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#0075BD">
+            <Image x:Name="imgDiscount" Source="{Binding details.ImageUri}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300" WidthRequest="300"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+        </Grid>
+        
+        <Grid Grid.Row="2" Margin="10,0,10,5">
+            <Entry x:Name="entryPhone" Placeholder="Enter Phone Number" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" Keyboard="Telephone"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="10,0,10,5">
+            <Entry x:Name="entryName" Placeholder="Enter Name" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" />
+        </Grid>
+
+        <Grid Grid.Row="4"  Margin="10,0,10,5">
+            <Entry x:Name="entryEmail" Placeholder="Enter Email" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" Keyboard="Email" />
+        </Grid>
+
+        <Grid Grid.Row="5" Margin="10,20,10,0">
+            <local:CustomButton x:Name="btnSubmit" Text="Submit" TextColor="White" HorizontalOptions="FillAndExpand" Clicked="OnSubmit"/>
+        </Grid>
+        
+        <Grid Grid.Row="6">
+        </Grid>
+    </Grid>
+</ContentPage>
